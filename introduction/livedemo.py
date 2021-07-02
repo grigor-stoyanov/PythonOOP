@@ -39,15 +39,38 @@ x = 5
 
 def first():
     y = 6
+
     def second():
         # looks for y in enclosing scope
         nonlocal y
         y += 100
         print(x)
+
     print(y)
+
 
 first()
 print(y)
 print(globals())
+
+
 # python reads lines row by row and adds variables,functions to their respective scope
 # if something is defined in a lower layer it will not be recognised in an upper unless defined
+# classes are used to create individual instance of objects eg. (template for a car-> car model)
+# reduce complexity,clean code structure,reusable,test each behaviour seperatly,easy modification,extensibility
+# everything in python is an object
+# object is an abstraction  that has characteristics and actions
+# some aspects of the class can be privated
+class Phone:
+
+    def __init__(self, color, sise):
+        # attributes
+        self.color = color
+        self.sise = sise
+
+    def turn_on(self):
+        # methods
+        return 'turn on'
+
+
+motorola = Phone('blue', 4.7)
