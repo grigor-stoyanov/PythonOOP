@@ -1,27 +1,32 @@
-from typing import List
+from typing import List,Optional
 
 
 class Stack:
-    def __init__(self, data=None):
+    def __init__(self, data: Optional[List[str]] = None):
         if not data:
             self.data: List[str] = []
         self.data = data
 
-    def push(self, element) -> None:
-        if isinstance(element, str):
-            self.data.append(element)
 
-    def pop(self) -> str:
-        return self.data.pop()
+def push(self, element) -> None:
+    if isinstance(element, str):
+        self.data.append(element)
 
-    def top(self) -> str:
-        return self.data[-1]
 
-    def is_empty(self) -> bool:
-        return not any(self.data)
+def pop(self) -> str:
+    return self.data.pop()
 
-    def __str__(self):
-        return f'[{", ".join([ele for ele in reversed(self.data)])}]'
+
+def top(self) -> str:
+    return self.data[-1]
+
+
+def is_empty(self) -> bool:
+    return not any(self.data)
+
+
+def __str__(self):
+    return f'[{", ".join([ele for ele in reversed(self.data)])}]'
 
 
 my_stack = Stack(['a', 'b'])
