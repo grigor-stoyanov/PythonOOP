@@ -88,7 +88,7 @@ class GrandChild(Child):
 # each child has more attributes than it's parents because it keeps calling super of its parent
 
 # MRO order of which methods are inherited with multiple inheritence
-# C3 linerisation algorithm
+# C3 linerisation algorithm from inside out
 class Parent:
     pass
 
@@ -109,7 +109,7 @@ class GrandChild(SecondChild, FirstChild):
 print(GrandChild.mro())
 
 
-# A mixin is a class that is implementing a specific set of features that is needed in many different classes
+# A mixin or interface is a class that is implementing a specific set of features that is needed in many different classes
 # Mixins cannot be instantiated by themselves
 # A mixin is a class which has no data, only methods
 class Vehicle:
