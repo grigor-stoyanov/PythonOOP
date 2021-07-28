@@ -1,16 +1,23 @@
 class Customer:
-    @classmethod
-    def id_increment(cls):
-        cls.id_count += 1
-        return cls.id_count
-
-    id_count = 0
+    __id_count = 0
 
     def __init__(self, name, address, email):
+        # Customer.__id_count += 1
         self.name = name
         self.address = address
         self.email = email
-        self.id = Customer.id_increment()
+        self._id = Customer.__id_count
+
+    @property
+    def id(self):
+        return self.__id_count
+
+    @id.setter
+    def id(self, value):
+        Customer.__id_count = value
+        return Customer.__id_count
+
+
 
     def __repr__(self):
         return f'Customer <{self.id}> {self.name}; Address: {self.address}' \
@@ -18,5 +25,4 @@ class Customer:
 
     @staticmethod
     def get_next_id():
-        next_id = self.id + 1
-        return next_id
+        return Customer.__id_count + 1

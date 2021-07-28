@@ -11,15 +11,15 @@ def solution():
 
     def take(n, seq):
         result = []
-        j = 0
-        for i in seq:
-            j += 1
-            result.append(i)
-            if j >= n:
-                break
+        # j = 0
+        # for i in seq:
+        for i in range(n):
+            result.append(next(seq))
+            # j += 1
+            # result.append(i)
+            # if j >= n:
+            #     break
         return result
-
-
 
     return (take, halves, integers)
 

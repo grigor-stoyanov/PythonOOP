@@ -28,16 +28,16 @@ class Gym:
 
     def subscription_info(self, subscription_id):
         subscription = self.get_object(subscription_id, self.subscriptions)
-        customer_id = subscription.customer_id
+        customer_id = subscription.id
         customer = self.get_object(customer_id, self.customers)
-        trainer_id = subscription.trainer_id
+        trainer_id = subscription.id
         trainer = self.get_object(trainer_id, self.trainers)
-        exercise_id = subscription.exercise_id
+        exercise_id = subscription.id
         plan = self.get_object(exercise_id, self.plans)
-        equipment_id = plan.equipment_id
+        equipment_id = plan.id
         equipment = self.get_object(equipment_id, self.equipment)
         return f'{subscription}\n{customer}\n{trainer}\n{plan}\n{equipment}'
 
     @staticmethod
     def get_object(oid, cl_iterable):
-        return list(filter(lambda x: x.id == oid, cl_iterable))[0]
+        return [ele for ele in cl_iterable if ele == oid][0]

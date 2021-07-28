@@ -1,21 +1,25 @@
 class Subscription:
-    @classmethod
-    def id_increment(cls):
-        cls.id_count += 1
-        return cls.id_count
-    id_count = 0
+    __id_count = 0
 
     def __init__(self, date, customer_id, trainer_id, exercise_id):
+        Subscription.__id_count += 1
         self.exercise_id = exercise_id
         self.trainer_id = trainer_id
         self.customer_id = customer_id
         self.date = date
-        self.id = Subscription.id_increment()
+        self._id = Subscription.__id_count
+    @property
+    def id(self):
+        return Subscription.__id_count
+
+    @id.setter
+    def id(self, value):
+        value = Subscription.__id_count
+        return value
 
     def __repr__(self):
         return f'Subscription <{self.id}> on {self.date}'
 
     @staticmethod
     def get_next_id():
-        next_id = Subscription.id_count + 1
-        return next_id
+        return Subscription.__id_count + 1

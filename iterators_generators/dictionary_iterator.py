@@ -2,6 +2,7 @@ class dictionary_iter:
     def __init__(self, dic_obj):
         self.dic_obj = dic_obj
         self.keys = list(self.dic_obj.keys())
+        # self.key_vlues = self.dic_obj.items()
         self.i = -1
 
     def __iter__(self):

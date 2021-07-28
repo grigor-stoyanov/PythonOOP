@@ -1,19 +1,22 @@
 class Trainer:
-    @classmethod
-    def id_increment(cls):
-        cls.id_count += 1
-        return cls.id_count
-
-    id_count = 0
+    __id_count = 0
 
     def __init__(self, name):
+        Trainer.__id_count += 1
         self.name = name
-        self.id = Trainer.id_increment()
+        self._id = Trainer.__id_count
+    @property
+    def id(self):
+        return Trainer.__id_count
+
+    @id.setter
+    def id(self, value):
+        value = Trainer.__id_count
+        return value
 
     def __repr__(self):
         return f'Trainer <{self.id}> {self.name}'
 
     @staticmethod
     def get_next_id():
-        next_id = Trainer.id_count + 1
-        return next_id
+        return Trainer.__id_count + 1
