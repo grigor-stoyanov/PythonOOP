@@ -55,3 +55,6 @@ class PersonTests(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 # the advantage to unittests can be in an entirely different module
+# mocking is a way to copy behaviour from outside services and classes used in class being tested
+# a patch decorator is used to substitute given dependancy with our own input
+# used to test payment provider or emails
